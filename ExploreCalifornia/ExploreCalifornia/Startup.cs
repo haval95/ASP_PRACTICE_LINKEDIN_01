@@ -28,11 +28,20 @@ namespace ExploreCalifornia
 
             app.UseRouting();
 
+            //this is used to register a new middleware 
+            app.Use(async (context, next) =>
+            {
+                if(context.Request.Path.Value.StartsWith("/hello"))
+                await context.Response.WriteAsync("first line");
+                await next();
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGet("/", async context =>
                 {
-                    await context.Response.WriteAsync("Hello World!");
+                    await context.Response.WriteAsync("Hello asp hv" +
+                        "!");
                 });
             });
         }
