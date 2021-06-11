@@ -1,8 +1,17 @@
-﻿
+﻿@model ExploreCalifornia.Models.Post
 @{ 
-    Layout = "_Layout1";
+    Layout = "_Layout1"; 
 }
 
 <h2>BlOGS </h2>
-
+<h1>@ViewBag.Title</h1>
+<h6>@ViewBag.Date</h6>
+<h1>
+    @Model.Title
+</h1>
+<h2>
+    @Model.Author
+</h2>
+<h3>@Model.Posted</h3>
+<h4>@Model.Body</h4>
 <p>Hello from our View Template!</p>
