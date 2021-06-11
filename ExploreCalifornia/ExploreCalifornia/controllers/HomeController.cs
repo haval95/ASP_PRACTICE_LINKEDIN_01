@@ -10,9 +10,9 @@ namespace ExploreCalifornia.controllers
     public class HomeController : Controller
     {
         // GET: HomeController
-        public string Index()
+        public IActionResult Index()
         {
-            return "Home";
+            return View();
         }
 
     }
