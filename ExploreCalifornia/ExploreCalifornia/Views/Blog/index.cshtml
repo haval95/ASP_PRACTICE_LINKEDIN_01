@@ -1,17 +1,45 @@
-﻿@model ExploreCalifornia.Models.Post
-@{ 
-    Layout = "_Layout1"; 
+﻿@model IEnumerable<ExploreCalifornia.Models.Post>
+
+<!--model ExploreCalifornia.Models.Post-->
+@{
+    Layout = "_Layout1";
 }
 
+<div class="blog-posts">
+    @foreach (var post in Model)
+    {
+
+        @await Html.PartialAsync("_Post", post);
+      <!--  <article class="blog-post">
+            <h1>@Html.ActionLink(post.Title,"Post", "Blog",
+               new
+               {
+                   year = post.Posted.Year,
+                   month = post.Posted.Month,
+                   key = post.key
+               }
+               )</h1>
+            <h1>@post.Title</h1>
+            <div class="details">
+                Posted <span>@post.Posted</span> by <span>@post.Author</span>
+            </div>
+            <div class="content">
+                @post.Body
+            </div>
+        </article>
+        -->
+    }
+</div>
+<!--
 <h2>BlOGS </h2>
-<h1>@ViewBag.Title</h1>
-<h6>@ViewBag.Date</h6>
+<h1>ViewBag.Title</h1>
+<h6>ViewBag.Date</h6>
 <h1>
-    @Model.Title
+    Model.Title
 </h1>
 <h2>
-    @Model.Author
+    Model.Author
 </h2>
-<h3>@Model.Posted</h3>
-<h4>@Model.Body</h4>
-<p>Hello from our View Template!</p>
+<h3>Model.Posted</h3>
+<h4>Model.Body</h4>
+<p>Hello from our View Template!</p>-->
